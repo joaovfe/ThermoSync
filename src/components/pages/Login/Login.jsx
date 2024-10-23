@@ -1,13 +1,21 @@
 import { useState } from 'react';
+
 import './Login.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const storedEmail = 'admin@gmail.com';
+    const storedPassword = '1234';
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Email:', email, 'Senha:', password);
+        if (email === storedEmail && password === storedPassword) {
+            console.log('Login bem-sucedido!');
+        } else {
+            console.log('Credenciais inválidas.');
+        }
     };
 
     return (
