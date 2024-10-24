@@ -38,11 +38,11 @@ Desenvolver um sistema de monitoramento em tempo real para refrigeradores indust
 
   ### 3. Tela de CRUD (Create, Read, Update, Delete)
 
-- **Descrição**: Tela para gerenciar os refrigeradores, permitindo ao usuário adicionar, visualizar, editar e remover registros.
+- **Descrição**: Tela para gerenciar os usuários, permitindo ao admin adicionar, visualizar, editar e remover registros.
 - **Funcionalidades**:
 
   - Formulários para entrada de dados.
-  - Listagem de refrigeradores com opções de edição e exclusão.
+  - Listagem de usuários com opções de edição e exclusão.
 
 ## Cliente ou Público-alvo
 
