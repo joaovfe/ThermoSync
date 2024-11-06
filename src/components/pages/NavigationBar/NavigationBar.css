@@ -2,74 +2,47 @@
     position: fixed;
     top: 0;
     left: 0;
-    
-    width: calc(100vw - 2em); /* * padding esquerda+direita = 2em */
-    padding: 1em;
-    
+    width: 100%; /* Usa 100% em vez de calc */
+    padding: 1em 2em; /* Padding lateral para alinhar corretamente */
     background-color: #007bff;
     color: white;
-    
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Inclui padding na largura */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; 
-    margin: 0;
-    background: linear-gradient(120deg, #4A628A, #7AB2D3, #B9E5E8, #DFF2EB );
-    background-size: 200% 200%;
-    animation: colors 15s ease infinite;
-  } 
-
+/* Container para o conteúdo da Navbar */
 .container {
     display: flex;
-    justify-content: space-between;
+    width: 100%;
     align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
 
+/* Marca e botão do menu alinhados */
 .navbar-brand {
     font-size: 1.5em;
     font-weight: bold;
     color: white;
     text-decoration: none;
-    padding-left: .5em;
+    padding-left: 0.5em;
 }
 
-.brand-highlight {
-    color: black;
-    font-weight: bold;
-}
-
-.navbar-menu {
-    display: flex;
-}
-
-.navbar-list {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar-item {
-    margin-left: 20px;
-}
-
-.navbar-link {
+.menu-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
     color: white;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 8px;
 }
 
-.navbar-link:hover {
-    color: #e6e6e6;
-}
-
+/* Informações da Navbar */
 .navbar-info {
     display: flex;
     flex-direction: row;
@@ -79,10 +52,8 @@ body {
 .navbar-info-item {
     text-align: end;
 }
-.navbar-info-item > h3 {
-    font-style: normal;
-}
 
+/* Ajuste de responsividade */
 @media (max-width: 768px) {
     .navbar-menu {
         display: none;
