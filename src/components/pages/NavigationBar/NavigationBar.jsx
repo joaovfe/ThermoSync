@@ -1,19 +1,12 @@
 import './NavigationBar.css';
 import Dashboard from '../Dashboard/Dashboard';
 
-function Home(){
-    return (
-        <div>
-            <NavigationBar />
-            <Dashboard />
-        </div>
-    )
-}
 function NavigationBar() {
   return (
     <header className="navbar">
       <div className="container">
         <a href="/#" className="navbar-brand">Dashboard</a>
+        <a href="/ListagemCliente" className="navbar-brand">Listagem de cliente</a>
         {/* <nav className="navbar-menu">
           <ul className="navbar-list">
             <li className="navbar-item">
@@ -50,4 +43,4 @@ function NavigationBar() {
   );
 }
 
-export default Home;
+export default NavigationBar;

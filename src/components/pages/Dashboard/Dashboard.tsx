@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { Line } from "react-chartjs-2";
 import "chartjs-adapter-moment";
-
+import NavigationBar  from '../NavigationBar/NavigationBar'
 
 import {
   Chart as ChartJS,
@@ -155,6 +155,7 @@ function Dashboard() {
     <div>
       {/* Grid de Cards */}
       <div className="home-cards">
+        <NavigationBar/>
         {dadosTratados.length > 0 &&
           dadosTratados.map((dispositivo, index) => {
             const ultimaMedicao =
