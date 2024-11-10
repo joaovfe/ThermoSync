@@ -1,5 +1,6 @@
 import './NavigationBar.css';
 import Dashboard from '../Dashboard/Dashboard';
+import { useNavigate } from 'react-router-dom';
 
 function Home(){
     return (
@@ -10,6 +11,13 @@ function Home(){
     )
 }
 function NavigationBar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    navigate("/");
+  };
+
   return (
     <header className="navbar">
       <div className="container">
@@ -30,6 +38,11 @@ function NavigationBar() {
             </li>
           </ul>
         </nav> */}
+              <div className="Logout">
+          <button onClick={handleLogout} className="logout-button">
+            Logout
+          </button>
+        </div>
         <div className="navbar-info">
           <div className="navbar-info-item">
             <h6>Tempo sem pausas:</h6>
