@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { Line } from "react-chartjs-2";
 import "chartjs-adapter-moment";
-import Sidebar from '../NavigationBar/SideBar';
 import NavigationBar  from '../NavigationBar/NavigationBar'
-
 
 import {
   Chart as ChartJS,
