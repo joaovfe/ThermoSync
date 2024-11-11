@@ -13,7 +13,7 @@ const Login = () => {
   const location = useLocation();
 
   const storedEmail = "admin@gmail.com";
-  const storedPassword = "1234";
+  const storedPassword = "X234tyouvx4,.?";
 
 
   useEffect(() => {
