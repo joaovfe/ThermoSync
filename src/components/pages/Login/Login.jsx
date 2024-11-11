@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import clientesData from "../../../../mockClientes.json";
 
 import "./Login.css";
 
@@ -14,7 +15,10 @@ const Login = () => {
   const storedEmail = "admin@gmail.com";
   const storedPassword = "1234";
 
+
   useEffect(() => {
+    localStorage.setItem("clientes", JSON.stringify(clientesData));
+
     if (location.state?.fromProtectedRoute) {
       toast.error("Você não pode acessar esta página sem estar logado.", {
         position: "top-right",
@@ -25,17 +29,19 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (email === storedEmail && password === storedPassword) {
-      localStorage.setItem("isAuthenticated", "true");
-      // toast.success('Login bem-sucedido!', {
-      //     position: 'top-right',
-      // });
-      // setTimeout(() => {
-      navigate("/NavigationBar");
-      // }, 2000);
+      localStorage.setItem("isAuthenticated",'true');
+
+      toast.success("Login bem-sucedido!", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+      navigate("/Dashboard");
     } else {
       toast.error("Credenciais inválidas.", {
         position: "top-right",
+        autoClose: 3000,
       });
     }
   };
@@ -63,7 +69,9 @@ const Login = () => {
               required
             />
           </div>
-          <button type="submit" className="button_login">Entrar</button>
+          <button type="submit" className="button_login">
+            Entrar
+          </button>
         </form>
         <ToastContainer />
       </div>
