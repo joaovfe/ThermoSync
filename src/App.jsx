@@ -16,11 +16,26 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Login />} />
-        <Route path='/Dashboard' element = {<Dashboard/>}></Route>
-        <Route path='/ListagemCliente' element = {<ListagemCliente/>}></Route>
-        <Route path='/FormCliente/:id' element = {<FormCliente/>}></Route>
-        <Route path='/FormCliente' element = {<FormCliente/>}></Route>
-        <Route path="/" element={<Login />} />
+        <Route path='/Dashboard' element = {
+          <ProtectedRoute>
+          <Dashboard/>
+          </ProtectedRoute>
+          }></Route>
+        <Route path='/ListagemCliente' element = {
+          <ProtectedRoute>
+          <ListagemCliente/>
+          </ProtectedRoute>
+          }></Route>
+        <Route path='/FormCliente/:id' element = {
+          <ProtectedRoute>
+          <FormCliente/>
+          </ProtectedRoute>
+          }></Route>
+        <Route path='/FormCliente' element = {
+          <ProtectedRoute>
+          <FormCliente/>
+          </ProtectedRoute>
+          }></Route>
         <Route
           path="/NavigationBar"
           element={

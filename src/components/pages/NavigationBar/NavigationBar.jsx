@@ -1,5 +1,5 @@
 import './NavigationBar.css';
-import Dashboard from '../Dashboard/Dashboard';
+// import Dashboard from '../Dashboard/Dashboard';
 import { useNavigate } from 'react-router-dom';
 import logoutIcon from "../../../assets/logout.svg";
 
@@ -20,7 +20,7 @@ function NavigationBar() {
           <img src={logoutIcon} alt="Logout" className="logout-icon" />
           </button>
         </div>
-        <a href="/#" className="navbar-brand">Dashboard</a>
+        <a href="/Dashboard" className="navbar-brand">Dashboard</a>
         <a href="/ListagemCliente" className="navbar-brand">Listagem de cliente</a>
         {/* <nav className="navbar-menu">
           <ul className="navbar-list">
