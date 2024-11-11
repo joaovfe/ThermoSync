@@ -1,0 +1,43 @@
+[
+    {
+        "key": 1,
+        "cnpj": "23.456.789/0001-12",
+        "nome": "Empresa Alpha",
+        "endereco": "Rua das Flores, 123",
+        "municipio": "São Paulo",
+        "estado": "SP"
+    },
+    {
+        "key": 2,
+        "cnpj": "12.987.654/0001-34",
+        "nome": "Beta Corp",
+        "endereco": "Avenida Brasil, 456",
+        "municipio": "Rio de Janeiro",
+        "estado": "RJ"
+    },
+    {
+        "key": 3,
+        "cnpj": "98.765.432/0001-56",
+        "nome": "Gamma Solutions",
+        "endereco": "Praça Central, 789",
+        "municipio": "Belo Horizonte",
+        "estado": "MG"
+    },
+    {
+        "key": 4,
+        "cnpj": "45.678.123/0001-78",
+        "nome": "Delta Ltda",
+        "endereco": "Alameda Santos, 321",
+        "municipio": "Curitiba",
+        "estado": "PR"
+    },
+    {
+        "key": 5,
+        "cnpj": "34.567.890/0001-90",
+        "nome": "Epsilon Enterprises",
+        "endereco": "Rua das Palmeiras, 654",
+        "municipio": "Porto Alegre",
+        "estado": "RS"
+    }
+]
+  

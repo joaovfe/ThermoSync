@@ -3,14 +3,6 @@ import Dashboard from '../Dashboard/Dashboard';
 import { useNavigate } from 'react-router-dom';
 import logoutIcon from "../../../assets/logout.svg";
 
-function Home(){
-    return (
-        <div>
-            <NavigationBar />
-            <Dashboard />
-        </div>
-    )
-}
 function NavigationBar() {
   const navigate = useNavigate();
 
@@ -29,6 +21,7 @@ function NavigationBar() {
           </button>
         </div>
         <a href="/#" className="navbar-brand">Dashboard</a>
+        <a href="/ListagemCliente" className="navbar-brand">Listagem de cliente</a>
         {/* <nav className="navbar-menu">
           <ul className="navbar-list">
             <li className="navbar-item">
@@ -66,4 +59,4 @@ function NavigationBar() {
   );
 }
 
-export default Home;
+export default NavigationBar;
