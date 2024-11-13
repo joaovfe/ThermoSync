@@ -1,0 +1,61 @@
+body {
+    background-color: #DFF2EB;
+    font-family: Arial;
+  }
+  
+  .table-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .table-wrapper {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .ant-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+  }
+  
+  .ant-card-head {
+    background-color: #B9E5E8;
+    color: #4A628A;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #7AB2D3;
+  }
+  
+  .ant-table {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .ant-table-thead > tr > th {
+    background-color: #B9E5E8;
+    color: #4A628A;
+    font-weight: bold;
+  }
+  
+  .ant-table-tbody > tr > td {
+    color: #4A628A;
+  }
+  
+  .ant-table-tbody > tr:hover > td {
+    background-color: #F0FAF7;
+  }
+  
+  .ant-row.ant-row-center.css-dev-only-do-not-override-tpassh {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+  }
+  

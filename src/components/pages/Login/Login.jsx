@@ -1,13 +1,8 @@
-
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import clientesData from "../../../../mockClientes.json";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
 
 import "./Login.css";
 
@@ -32,23 +27,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email === storedEmail && password === storedPassword) {
-        // toast.success('Login bem-sucedido!', {
-        //     position: 'top-right',
-        // });
-        // setTimeout(() => {
-            navigate('/Dashboard'); 
-        // }, 2000); 
-    }else {
-        toast.error('Credenciais inválidas.', {
-            position: 'top-right',
-        });
+      navigate('/Dashboard'); 
       localStorage.setItem("isAuthenticated", "true");
-      // toast.success('Login bem-sucedido!', {
-      //     position: 'top-right',
-      // });
-      // setTimeout(() => {
-      navigate("/NavigationBar");
-      // }, 2000);
     } else {
       toast.error("Credenciais inválidas.", {
         position: "top-right",
@@ -56,11 +36,11 @@ const Login = () => {
     }
   };
 
-const initMockData = (data) => {
-  localStorage.setItem('clientes', JSON.stringify(data));
-};
+  const initMockData = (data) => {
+    localStorage.setItem('clientes', JSON.stringify(data));
+  };
 
-initMockData(clientesData);
+  initMockData(clientesData);
 
   return (
     <div className="wrapper">

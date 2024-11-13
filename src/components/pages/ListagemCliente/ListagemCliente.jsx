@@ -3,18 +3,19 @@ import { Card, Table, Space, Button, Col, Row } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from '../NavigationBar/NavigationBar';
+import "./ListagemCliente.css";
 
 function ListagemCliente() {
   const [dataSource, setDataSource] = useState(() => {
     const savedData = localStorage.getItem('clientes');
-    return savedData ? JSON.parse(savedData) : ''; // Parse JSON if available, otherwise use an empty string
+    return savedData ? JSON.parse(savedData) : [];
   });
 
   const navigate = useNavigate();
 
   const columns = [
     {
-      title: 'Cnpj',
+      title: 'CNPJ',
       dataIndex: 'cnpj',
     },
     {
@@ -26,7 +27,7 @@ function ListagemCliente() {
       dataIndex: 'endereco',
     },
     {
-      title: 'Municipio',
+      title: 'Município',
       dataIndex: 'municipio'
     },
     {
@@ -37,45 +38,69 @@ function ListagemCliente() {
       title: '',
       key: 'action',
       render: (_, record) => (
-        <Space size="middle">
-          <Button color="default" variant="outlined" icon={<EditOutlined />} onClick={() => editCliente(_)} ></Button>
-          <Button color="danger" variant="dashed" icon={<DeleteOutlined />} onClick={() => deleteCliente(_)}></Button>
+        <Space size="small">
+          <Button 
+            type="default" 
+            icon={<EditOutlined />} 
+            onClick={() => editCliente(record)} 
+          />
+          <Button 
+            type="primary" 
+            danger 
+            icon={<DeleteOutlined />} 
+            onClick={() => deleteCliente(record)} 
+          />
         </Space>
       ),
     }
   ];
 
   function deleteCliente(cliente) {
-    let clientes = JSON.parse(localStorage.getItem('clientes'))
-    clientes = clientes.filter(item => item.key != cliente.key)
-    localStorage.setItem('clientes', JSON.stringify(clientes))
-    setDataSource(JSON.parse(localStorage.getItem('clientes')))
+    let clientes = JSON.parse(localStorage.getItem('clientes'));
+    clientes = clientes.filter(item => item.key !== cliente.key);
+    localStorage.setItem('clientes', JSON.stringify(clientes));
+    setDataSource(clientes);
   }
 
   function editCliente(cliente) {
-    navigate(`/FormCliente/${cliente.key}`)
+    navigate(`/FormCliente/${cliente.key}`);
   }
 
   function addCliente() {
-    navigate('/FormCliente')
+    navigate('/FormCliente');
   }
 
   return (
     <div>
-      <Card title="Clientes" size="small" extra={<Button type="primary" onClick={() => addCliente()}>Add. Cliente</Button>}>
-        <Row>
-          <Col span={18} offset={3}>
-            <Table
-              rowKey="key"
-              columns={columns}
-              dataSource={dataSource}
-            />
-          </Col>
-        </Row>
-      </Card>
       <NavigationBar />
+      <div className="table-container">
+        <Card 
+          title="Clientes" 
+          size="small" 
+          extra={
+            <Button 
+              type="primary" 
+              onClick={addCliente}
+              style={{ fontWeight: 'bold' }}
+            >
+              Adicionar Cliente
+            </Button>
+          }
+        >
+          <Row justify="center">
+            <Col span={24} className="table-wrapper">
+              <Table
+                rowKey="key"
+                columns={columns}
+                dataSource={dataSource}
+                pagination={{ pageSize: 5 }}
+                scroll={{ x: '100%' }}
+              />
+            </Col>
+          </Row>
+        </Card>
+      </div>
     </div>
-    
   );
 }
 
