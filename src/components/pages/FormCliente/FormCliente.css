@@ -1,0 +1,77 @@
+/* Estilos para FormCliente */
+
+body {
+    background-color: #DFF2EB;
+    font-family: Arial, sans-serif;
+  }
+  
+  .form-cliente-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .form-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .ant-card-head {
+    background-color: #B9E5E8;
+    color: #4A628A;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #7AB2D3;
+  }
+  
+  .form-content {
+    padding: 20px;
+  }
+  
+  .ant-form-item {
+    margin-bottom: 16px;
+  }
+  
+  .ant-input {
+    border: 1px solid #7AB2D3;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: #FFFFFF;
+    transition: all 0.3s;
+  }
+  
+  .ant-input:focus {
+    border-color: #4A628A;
+    box-shadow: 0 0 5px rgba(74, 98, 138, 0.5);
+  }
+  
+  .submit-button {
+    background-color: #4A628A;
+    border-color: #4A628A;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #7AB2D3;
+    border-color: #7AB2D3;
+  }
+  
+  .back-button {
+    background-color: #B9E5E8;
+    border-color: #B9E5E8;
+    color: #4A628A;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #7AB2D3;
+    border-color: #7AB2D3;
+  }
+  
