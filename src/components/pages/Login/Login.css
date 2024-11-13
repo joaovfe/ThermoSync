@@ -70,7 +70,7 @@ label {
 }
 
 input {
-  width: 100%;
+  width: 100%; /* Garante que o input não ultrapasse o limite do container */
   padding: 0.75rem;
   border: 0px solid #ddd;
   border-radius: 5px;
@@ -85,7 +85,7 @@ input:focus {
   outline: none; 
 }
 
-.button_login {
+button {
   background-color: #4A628A;
   box-shadow: 0px 1px 1px rgba(0 0 0 /.1);
   color: white;
@@ -97,12 +97,12 @@ input:focus {
   transition: background-color 0.3s, transform 0.2s ease;
 }
 
-.button_login:hover {
+button:hover {
   background-color: #5a67d8;
   transform: translateY(-3px); 
 }
 
-.button_login:active {
+button:active {
   background-color: #4c51bf;
 }
 
