@@ -1,17 +1,22 @@
 .sidebar {
   position: fixed;
   top: 0;
-  left: -250px;
+  right: -250px;
   width: 250px;
   height: 100%;
   background-color: #333;
   color: white;
   padding: 15px;
-  transition: left 0.3s;
+  transition: right 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
+  opacity: 0; 
+  pointer-events: none; 
 }
 
 .sidebar.open {
-  left: 0;
+  right: 0;
+  opacity: 1; 
+  pointer-events: auto; 
 }
 
 .sidebar .close-btn {
@@ -20,7 +25,11 @@
   background: none;
   border: none;
   cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
+
 
 .sidebar-menu {
   list-style: none;
@@ -36,4 +45,38 @@
   color: white;
   text-decoration: none;
   font-size: 18px;
+}
+
+/* Media query para telas menores (mobile) */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    padding-left: 0; /* Remove o deslocamento à esquerda para dispositivos móveis */
+  }
+
+  .sidebar.open + .main-content {
+    transform: translateX(200px); /* Mova o conteúdo principal para a direita */
+  }
+
+  .sidebar-menu a {
+    font-size: 16px; /* Ajuste do tamanho da fonte para dispositivos móveis */
+  }
+}
+
+/* Media query para telas grandes (desktop) */
+@media screen and (min-width: 769px) {
+  .sidebar {
+    width: 250px; /* Largura maior para telas grandes */
+  }
+
+  .main-content {
+    padding-left: 0; /* Não há necessidade de deslocar o conteúdo se a sidebar for fixa */
+  }
+
+  .sidebar.open + .main-content {
+    transform: translateX(250px); /* Deslocamento para a direita com a sidebar aberta */
+  }
 }
