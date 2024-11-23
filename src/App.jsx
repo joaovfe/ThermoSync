@@ -6,6 +6,8 @@ import NavigationBar from './components/pages/NavigationBar/NavigationBar';
 import Dashboard from './components/pages/Dashboard/Dashboard';
 import ListagemCliente from './components/pages/ListagemCliente/ListagemCliente';
 import FormCliente from './components/pages/FormCliente/FormCliente';
+import ListagemUsuario from './components/pages/ListagemUsuario/ListagemUsuario';
+import FormUsuario from './components/pages/FormUsuario/FormUsuario';
 
 
 import ProtectedRoute from './components/pages/Login/ProtectedRoute';
@@ -44,6 +46,20 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+        path="/ListagemUsuario"
+        element={
+          <ProtectedRoute>
+            <ListagemUsuario/>
+          </ProtectedRoute>
+        }></Route>
+        <Route
+        path="/FormUsuario"
+        element={
+          <ProtectedRoute>
+            <FormUsuario/>
+          </ProtectedRoute>
+        }></Route>
       </Routes>
     </Router>
   );
