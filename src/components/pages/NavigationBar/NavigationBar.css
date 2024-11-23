@@ -31,14 +31,44 @@
 }
 
 .menu-btn {
-    font-size: 24px;
-    background: none;
+    font-size: 20px;
+    background: #055ebd;
     border: none;
-    color: white;
     cursor: pointer;
-    padding: 8px;
-    margin-left: 10px;
+    color: #fff;
+    margin-left: 35px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
+.menu-btn:hover {
+    transform: scale(1.1); 
+}
+
+.menu-btn .icon {
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu-btn .icon.hamburger {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.menu-btn .icon.close {
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+.menu-btn.active .icon.hamburger {
+    opacity: 0;
+    transform: rotate(90deg); /* Rotação para sumir */
+}
+
+.menu-btn.active .icon.close {
+    opacity: 1;
+    transform: rotate(0deg); 
+}
+
 
 /* Informações da Navbar */
 .navbar-info {
@@ -51,6 +81,8 @@
 .navbar-info-item {
     text-align: end;
 }
+
+
 
 /* Ajuste de responsividade */
 @media (max-width: 768px) {

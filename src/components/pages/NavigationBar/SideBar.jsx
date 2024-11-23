@@ -4,8 +4,8 @@ import './SideBar.css';
 function Sidebar({ isOpen, toggleSidebar }) {
     return (
         <div className={`sidebar ${isOpen ? "open" : ""}`}>
-            <button onClick={toggleSidebar} className="close-btn">×</button>
-            <nav>
+            {/* <button onClick={toggleSidebar} className="close-btn">×</button> */}
+            <nav className='section'>
                 <ul>
                     <li><a href="#section1">Section 1</a></li>
                     <li><a href="#section2">Section 2</a></li>

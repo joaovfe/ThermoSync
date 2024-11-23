@@ -12,14 +12,14 @@ function Home() {
 
     return (
         <div>
-            <NavigationBar toggleSidebar={toggleSidebar} />
-            <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
             <Dashboard />
+            <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+            <NavigationBar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
         </div>
     );
 }
 
-function NavigationBar({ toggleSidebar }) {
+function NavigationBar({ toggleSidebar, isSidebarOpen }) {
     return (
         <header className="navbar">
             <div className="container">
@@ -38,9 +38,14 @@ function NavigationBar({ toggleSidebar }) {
                         <h3>20/20</h3>
                     </div>
                 </div>
-              <button onClick={toggleSidebar} className="menu-btn">
-                  &#9776; Menu
-              </button>
+                {/* Botão alternando entre ícones */}
+                <button
+                    onClick={toggleSidebar}
+                    className={`menu-btn ${isSidebarOpen ? 'active' : ''}`}
+                >
+                    <span className="icon hamburger">☰</span>
+                    <span className="icon close">✖</span>
+                </button>
             </div>
         </header>
     );
