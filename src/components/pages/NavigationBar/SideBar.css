@@ -53,3 +53,27 @@
   justify-content: center;
   padding-top: 70px;
 }
+
+#link-sidebar {
+  color: #ecf0f1; /* Cor do texto */
+  text-decoration: none; /* Remove o sublinhado */
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre o texto e ícone */
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+#link-sidebar:hover {
+  background-color: #34495e; /* Cor de fundo ao hover */
+  color: #1abc9c; /* Destaque ao hover */
+  transform: translateX(5px); /* Pequeno movimento ao hover */
+}
+
+#link-sidebar:active {
+  background-color: #1abc9c; /* Cor de fundo ao clicar */
+  color: #ecf0f1; /* Texto branco ao clicar */
+}

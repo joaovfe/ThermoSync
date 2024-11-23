@@ -7,9 +7,8 @@ function Sidebar({ isOpen, toggleSidebar }) {
             {/* <button onClick={toggleSidebar} className="close-btn">×</button> */}
             <nav className='section'>
                 <ul>
-                    <li><a href="#section1">Section 1</a></li>
-                    <li><a href="#section2">Section 2</a></li>
-                    <li><a href="#section3">Section 3</a></li>
+                    <li><a href="#section1" id='link-sidebar'>Adicionar Cliente</a></li>
+                    <li><a href="#section2" id='link-sidebar'>Adicionar Usuário</a></li>
                 </ul>
             </nav>
         </div>
