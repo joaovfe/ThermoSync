@@ -6,36 +6,51 @@ import NavigationBar from './components/pages/NavigationBar/NavigationBar';
 import Dashboard from './components/pages/Dashboard/Dashboard';
 import ListagemCliente from './components/pages/ListagemCliente/ListagemCliente';
 import FormCliente from './components/pages/FormCliente/FormCliente';
-
+import ListagemUsuario from './components/pages/ListagemUsuarios/ListagemUsuarios'; 
+import FormUsuario from './components/pages/ListagemUsuarios/FormUsuario'; 
 
 import ProtectedRoute from './components/pages/Login/ProtectedRoute';
-function App() {
-  // const [count, setCount] = useState(0);
 
+function App() {
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Login />} />
-        <Route path='/Dashboard' element = {
+        <Route path='/Dashboard' element={
           <ProtectedRoute>
-          <Dashboard/>
+            <Dashboard />
           </ProtectedRoute>
-          }></Route>
-        <Route path='/ListagemCliente' element = {
+        } />
+        <Route path='/ListagemCliente' element={
           <ProtectedRoute>
-          <ListagemCliente/>
+            <ListagemCliente />
           </ProtectedRoute>
-          }></Route>
-        <Route path='/FormCliente/:id' element = {
+        } />
+        <Route path='/FormCliente/:id' element={
           <ProtectedRoute>
-          <FormCliente/>
+            <FormCliente />
           </ProtectedRoute>
-          }></Route>
-        <Route path='/FormCliente' element = {
+        } />
+        <Route path='/FormCliente' element={
           <ProtectedRoute>
-          <FormCliente/>
+            <FormCliente />
           </ProtectedRoute>
-          }></Route>
+        } />
+        <Route path='/ListagemUsuario' element={
+          <ProtectedRoute>
+            <ListagemUsuario />
+          </ProtectedRoute>
+        } />
+        <Route path='/FormUsuario/:id' element={
+          <ProtectedRoute>
+            <FormUsuario />
+          </ProtectedRoute>
+        } />
+        <Route path='/FormUsuario' element={
+          <ProtectedRoute>
+            <FormUsuario />
+          </ProtectedRoute>
+        } />
         <Route
           path="/NavigationBar"
           element={

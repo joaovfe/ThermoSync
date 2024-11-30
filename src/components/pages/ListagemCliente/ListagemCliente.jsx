@@ -7,7 +7,7 @@ import NavigationBar from '../NavigationBar/NavigationBar';
 function ListagemCliente() {
   const [dataSource, setDataSource] = useState(() => {
     const savedData = localStorage.getItem('clientes');
-    return savedData ? JSON.parse(savedData) : ''; // Parse JSON if available, otherwise use an empty string
+    return savedData ? JSON.parse(savedData) : ''; 
   });
 
   const navigate = useNavigate();
