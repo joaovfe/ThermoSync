@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import Login from './components/pages/Login/Login'; 
 import './App.css';
@@ -7,7 +6,7 @@ import Dashboard from './components/pages/Dashboard/Dashboard';
 import ListagemCliente from './components/pages/ListagemCliente/ListagemCliente';
 import FormCliente from './components/pages/FormCliente/FormCliente';
 import ListagemUsuario from './components/pages/ListagemUsuarios/ListagemUsuarios'; 
-import FormUsuario from './components/pages/ListagemUsuarios/FormUsuario'; 
+import FormUsuario from './components/pages/ListagemUsuarios/FormUsuario';
 
 import ProtectedRoute from './components/pages/Login/ProtectedRoute';
 
@@ -21,28 +20,28 @@ function App() {
             <Dashboard />
           </ProtectedRoute>
         } />
-        <Route path='/ListagemCliente' element={
-          <ProtectedRoute>
+        <Route path="/ListagemCliente" element={
+          <ProtectedRoute adminOnly={true}>
             <ListagemCliente />
           </ProtectedRoute>
         } />
         <Route path='/FormCliente/:id' element={
-          <ProtectedRoute>
+          <ProtectedRoute adminOnly={true}>
             <FormCliente />
           </ProtectedRoute>
         } />
         <Route path='/FormCliente' element={
-          <ProtectedRoute>
+          <ProtectedRoute adminOnly={true}>
             <FormCliente />
           </ProtectedRoute>
         } />
         <Route path='/ListagemUsuario' element={
-          <ProtectedRoute>
+          <ProtectedRoute adminOnly={true}>
             <ListagemUsuario />
           </ProtectedRoute>
         } />
-        <Route path='/FormUsuario/:id' element={
-          <ProtectedRoute>
+        <Route path='/FormUsuario/:key' element={
+          <ProtectedRoute adminOnly={true}>
             <FormUsuario />
           </ProtectedRoute>
         } />
