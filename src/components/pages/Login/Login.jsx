@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import clientesData from "../../../../mockClientes.json";
+
 import "./Login.css";
 
 const Login = () => {
@@ -10,11 +12,13 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Credenciais fixas
   const storedEmail = "admin@gmail.com";
   const storedPassword = "X234tyouvx4,.?";
 
+
   useEffect(() => {
+    localStorage.setItem("clientes", JSON.stringify(clientesData));
+
     if (location.state?.fromProtectedRoute) {
       toast.error("Você não pode acessar esta página sem estar logado.", {
         position: "top-right",
@@ -26,31 +30,10 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Prioriza credenciais fixas 
     if (email === storedEmail && password === storedPassword) {
-      localStorage.setItem("isAuthenticated", "true");
-      localStorage.setItem(
-        "loggedInUser",
-        JSON.stringify({ nome: "Administrador", username: storedEmail })
-      );
+      localStorage.setItem("isAuthenticated",'true');
 
-      toast.success("Login como Administrador realizado com sucesso!", {
-        position: "top-right",
-        autoClose: 2000,
-      });
-      navigate("/Dashboard");
-      return;
-    }
-
-    // Caso nao tenha que usar as credenciais fixas
-    const users = JSON.parse(localStorage.getItem("usuarios")) || [];
-    const user = users.find((u) => u.username === email && u.password === password);
-
-    if (user) {
-      localStorage.setItem("isAuthenticated", "true");
-      localStorage.setItem("loggedInUser", JSON.stringify(user));
-
-      toast.success(`Bem-vindo, ${user.nome}!`, {
+      toast.success("Login bem-sucedido!", {
         position: "top-right",
         autoClose: 2000,
       });
@@ -69,9 +52,9 @@ const Login = () => {
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Usuário (Email ou Username):</label>
+            <label>Email:</label>
             <input
-              type="text"
+              type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
