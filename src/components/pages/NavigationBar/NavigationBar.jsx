@@ -28,6 +28,7 @@ function NavigationBar() {
         </div>
         <a href="/Dashboard" className="navbar-brand">Dashboard</a>
         <a href="/ListagemCliente" className="navbar-brand">Listagem de cliente</a>
+        <a href="/ListagemUsuario" className="navbar-brand">Listagem de Usuário</a>
         {/* <nav className="navbar-menu">
           <ul className="navbar-list">
             <li className="navbar-item">
