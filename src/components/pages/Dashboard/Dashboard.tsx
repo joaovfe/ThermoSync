@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { Line } from "react-chartjs-2";
 import "chartjs-adapter-moment";
-import NavigationBar  from '../NavigationBar/NavigationBar'
-
+import NavigationBar from "../NavigationBar/NavigationBar";
+// eslint-disable-next-line react/prop-types
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -14,6 +14,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -23,7 +24,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
 
 const API_URL =
   "https://0gk17cztpb.execute-api.sa-east-1.amazonaws.com/getLatestData";
@@ -68,8 +68,10 @@ function Dashboard() {
   const [dadosTratados, setDadosTratados] = useState<DadoTratado[]>([]);
 
   useEffect(() => {
-    fetch(API_URL)
-      .then(() => {
+    // Simulação de fetch com dados mockados
+    const fetchDados = async () => {
+      try {
+        // Aqui você pode substituir pelos dados reais de uma API
         const data: Medicao[] = [
           {
             dado_id: 508,
@@ -94,27 +96,6 @@ function Dashboard() {
           },
           {
             dado_id: 505,
-            dispositivo_id: 1,
-            data_hora_medicao: "2024-09-13T16:38:06",
-            temperatura: -3.0,
-            status_alerta: "normal",
-          },
-          {
-            dado_id: 504,
-            dispositivo_id: 1,
-            data_hora_medicao: "2024-09-13T16:33:06",
-            temperatura: -2.0,
-            status_alerta: "normal",
-          },
-          {
-            dado_id: 504,
-            dispositivo_id: 2,
-            data_hora_medicao: "2024-09-13T16:33:06",
-            temperatura: -5.0,
-            status_alerta: "normal",
-          },
-          {
-            dado_id: 504,
             dispositivo_id: 2,
             data_hora_medicao: "2024-09-13T15:33:06",
             temperatura: -2.0,
@@ -127,36 +108,23 @@ function Dashboard() {
             temperatura: 0.0,
             status_alerta: "normal",
           },
-          {
-            dado_id: 504,
-            dispositivo_id: 2,
-            data_hora_medicao: "2024-09-13T13:33:06",
-            temperatura: 3.0,
-            status_alerta: "normal",
-          },
-          {
-            dado_id: 504,
-            dispositivo_id: 2,
-            data_hora_medicao: "2024-09-13T12:33:06",
-            temperatura: 5.0,
-            status_alerta: "normal",
-          },
         ];
-        return data;
-      })
-      .then((data) => {
-        const res = organizar(data);
-        setDadosTratados(res);
-        console.log(res);
-      });
+        const dadosOrganizados = organizar(data);
+        setDadosTratados(dadosOrganizados);
+      } catch (error) {
+        console.error("Erro ao buscar dados:", error);
+      }
+    };
+
+    fetchDados();
   }, []);
 
   return (
     <div>
+      <NavigationBar />
       {/* Grid de Cards */}
       <div className="home-cards">
-        <NavigationBar/>
-        {dadosTratados.length > 0 &&
+        {dadosTratados.length > 0 ? (
           dadosTratados.map((dispositivo, index) => {
             const ultimaMedicao =
               dispositivo.medicoes[dispositivo.medicoes.length - 1];
@@ -189,7 +157,10 @@ function Dashboard() {
                 />
               </div>
             );
-          })}
+          })
+        ) : (
+          <p>Carregando dados...</p>
+        )}
       </div>
     </div>
   );
@@ -199,9 +170,13 @@ function prepararDadosParaGrafico(dispositivo: DadoTratado) {
   const dataset = {
     data: dispositivo.medicoes.map((medicao) => medicao.temperatura),
     borderColor: "#6971FF",
+    tension: 0.3,
   };
   const labels = dispositivo.medicoes.map((medicao) =>
-    medicao.data_hora_medicao.split("T")[1].substring(0, 5)
+    new Date(medicao.data_hora_medicao).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    })
   );
 
   return {
