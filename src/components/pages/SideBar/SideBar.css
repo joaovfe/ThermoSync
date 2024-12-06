@@ -1,0 +1,144 @@
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 70px;
+    right: -250px; /* Altere "left" para "right" */
+    width: 250px;
+    height: 100%;
+    background-color: #004d99;
+    color: white;
+    padding: 30px;
+    transition: right 0.3s ease, opacity 0.3s ease; /* Transição ajustada para "right" */
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .sidebar.open {
+    right: 0; /* Altere "left" para "right" */
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Botão de fechar */
+  .sidebar .close-btn {
+    font-size: 24px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px; /* Ajustado para alinhar dentro do menu */
+  }
+  
+  /* Menu da Sidebar */
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+  }
+  
+  .sidebar-menu li {
+    margin: 15px 0;
+  }
+  
+  .sidebar-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .sidebar-menu a:hover {
+    background-color: #34495e; /* Fundo ao hover */
+    color: #1abc9c; /* Destaque ao hover */
+    transform: translateX(-5px); /* Movimento para a esquerda ao hover */
+  }
+  
+  /* Contêiner do botão de logout */
+  .logout-container {
+    position: absolute;
+    bottom: 50px; /* Fixa no final do menu */
+    left: 50%; /* Centraliza o botão */
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+  }
+  
+  /* Botão de logout */
+  .logout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+  }
+  
+  .logout-button:hover {
+    background-color: #d32f2f; /* Vermelho mais escuro no hover */
+    transform: translateY(-3px);
+  }
+  
+  .logout-icon {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Botão de hambúrguer */
+  .hamburger-button {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 20px;
+    right: 15px; /* Move o botão para o canto superior direito */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1100; /* Deve estar acima do conteúdo */
+  }
+  
+  
+  .hamburger-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0; /* Espaçamento entre as barras */
+    border-radius: 3px;
+    transition: background-color 0.3s;
+  }
+  
+  .hamburger-button:hover .hamburger-icon {
+    background-color: #959595;
+  }
+  
+  .hamburger-button .hamburger-icon::before,
+  .hamburger-button .hamburger-icon::after {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #007bff;
+    border-radius: 3px;
+    position: absolute;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  /* Barra superior */
+  .hamburger-button .hamburger-icon::before {
+    transform: translateY(-8px);
+  }
+  
+  /* Barra inferior */
+  .hamburger-button .hamburger-icon::after {
+    transform: translateY(8px);
+  }
