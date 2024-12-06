@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { Line } from "react-chartjs-2";
 import "chartjs-adapter-moment";
-import NavigationBar  from '../NavigationBar/NavigationBar'
+import NavigationBar from '../NavigationBar/NavigationBar';
 
 import {
   Chart as ChartJS,
@@ -14,6 +14,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -24,9 +25,7 @@ ChartJS.register(
   Legend
 );
 
-
-const API_URL =
-  "https://0gk17cztpb.execute-api.sa-east-1.amazonaws.com/getLatestData";
+const API_URL = "https://0gk17cztpb.execute-api.sa-east-1.amazonaws.com/getLatestData";
 
 // Tipagem para os dados recebidos da API
 interface Medicao {
@@ -71,6 +70,7 @@ function Dashboard() {
     fetch(API_URL)
       .then(() => {
         const data: Medicao[] = [
+          // Dados Freezer 1
           {
             dado_id: 508,
             dispositivo_id: 1,
@@ -106,6 +106,7 @@ function Dashboard() {
             temperatura: -2.0,
             status_alerta: "normal",
           },
+          // Dados Freezer 2
           {
             dado_id: 504,
             dispositivo_id: 2,
@@ -141,6 +142,36 @@ function Dashboard() {
             temperatura: 5.0,
             status_alerta: "normal",
           },
+          // Dados Freezer 3
+          {
+            dado_id: 509,
+            dispositivo_id: 3,
+            data_hora_medicao: "2024-09-23T00:37:58",
+            temperatura: -4.0,
+            status_alerta: "normal",
+          },
+          {
+            dado_id: 510,
+            dispositivo_id: 3,
+            data_hora_medicao: "2024-09-23T00:24:13",
+            temperatura: -3.0,
+            status_alerta: "normal",
+          },
+          // Dados Freezer 4
+          {
+            dado_id: 511,
+            dispositivo_id: 4,
+            data_hora_medicao: "2024-09-23T00:37:58",
+            temperatura: -6.0,
+            status_alerta: "alerta",
+          },
+          {
+            dado_id: 512,
+            dispositivo_id: 4,
+            data_hora_medicao: "2024-09-23T00:24:13",
+            temperatura: -5.0,
+            status_alerta: "alerta",
+          },
         ];
         return data;
       })
@@ -155,7 +186,7 @@ function Dashboard() {
     <div>
       {/* Grid de Cards */}
       <div className="home-cards">
-        <NavigationBar/>
+        <NavigationBar />
         {dadosTratados.length > 0 &&
           dadosTratados.map((dispositivo, index) => {
             const ultimaMedicao =
@@ -176,6 +207,7 @@ function Dashboard() {
                   <h3>{ultimaMedicao.temperatura}º C</h3>
                   {emAlerta && <p>Freezer em alerta!</p>}
                 </div>
+
                 <Line
                   data={prepararDadosParaGrafico(dispositivo)}
                   options={{
