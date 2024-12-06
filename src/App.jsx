@@ -8,14 +8,12 @@ import ListagemCliente from './components/pages/ListagemCliente/ListagemCliente'
 import FormCliente from './components/pages/FormCliente/FormCliente';
 import ListagemUsuario from './components/pages/ListagemUsuario/ListagemUsuario';
 import FormUsuario from './components/pages/FormUsuario/FormUsuario';
-
-
 import ProtectedRoute from './components/pages/Login/ProtectedRoute';
-function App() {
-  // const [count, setCount] = useState(0);
 
+function AppContent() {
   return (
-    <Router>
+    <>
+    {/* <Router> */}
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/Dashboard' element = {
@@ -61,6 +59,15 @@ function App() {
           </ProtectedRoute>
         }></Route>
       </Routes>
+    {/* </Router> */}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
