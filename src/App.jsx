@@ -33,6 +33,14 @@ function AppContent() {
           }
         ></Route>
         <Route
+          path="/FormUsuario/:id"
+          element={
+            <ProtectedRoute>
+              <FormUsuario />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
           path="/FormCliente/:id"
           element={
             <ProtectedRoute>

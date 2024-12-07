@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SideBar.css";
 import { useNavigate } from "react-router-dom";
 import logoutIcon from "../../../assets/logout.svg";
+import hamburguer from "../../../assets/hamburguer.svg"
 
 function SideBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,20 +14,17 @@ function SideBar() {
     navigate("/");
   };
 
-  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || null;
-  const isAdmin = loggedInUser?.nome === "Administrador";
+  const isAdmin = localStorage.getItem("admin") === "true";
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div>
+    <div className="hamburger-button">
       {/* Botão de hambúrguer para abrir/fechar o menu */}
-      <button className="hamburger-button" onClick={toggleSidebar}>
-        <span className="hamburger-icon"></span>
-        <span className="hamburger-icon"></span>
-        <span className="hamburger-icon"></span>
+      <button onClick={toggleSidebar} className="hamburguer-button-button">
+        <img src={hamburguer} />
       </button>
 
       {/* Menu Lateral */}

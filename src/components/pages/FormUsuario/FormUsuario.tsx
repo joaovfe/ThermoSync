@@ -56,10 +56,12 @@ const FormUsuario: React.FC = () => {
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
   }
 
+  const title = id ? "Editar Usuário" : "Cadastro de usuário"
+
   return (
     <div>
       <NavigationBar />
-      <Card title="Cadastro de Usuário" size="small">
+      <Card title={title} size="small">
         <Form
           form={form}
           layout="vertical"

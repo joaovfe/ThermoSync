@@ -62,7 +62,7 @@ function ListagemCliente() {
 
   return (
     <div>
-      <Card title="Clientes" size="small" extra={<Button type="primary" onClick={() => addCliente()}>Add. Cliente</Button>}>
+      <Card title="Clientes" size="small" extra={<Button type="primary" onClick={() => addCliente()}>+</Button>}>
         <Row>
           <Col span={18} offset={3}>
             <Table

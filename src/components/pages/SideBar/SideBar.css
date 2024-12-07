@@ -1,11 +1,11 @@
 /* Sidebar */
 .sidebar {
     position: fixed;
-    top: 70px;
+    top: 65px;
     right: -250px; /* Altere "left" para "right" */
     width: 250px;
     height: 100%;
-    background-color: #004d99;
+    background-color: #007bff;
     color: white;
     padding: 30px;
     transition: right 0.3s ease, opacity 0.3s ease; /* Transição ajustada para "right" */
@@ -40,7 +40,7 @@
   }
   
   .sidebar-menu li {
-    margin: 15px 0;
+    margin: 25px 0;
   }
   
   .sidebar-menu a {
@@ -53,8 +53,8 @@
   }
   
   .sidebar-menu a:hover {
-    background-color: #34495e; /* Fundo ao hover */
-    color: #1abc9c; /* Destaque ao hover */
+    /* background-color: #34495e; Fundo ao hover */
+    text-decoration: underline; /* Destaque ao hover */
     transform: translateX(-5px); /* Movimento para a esquerda ao hover */
   }
   
@@ -104,6 +104,12 @@
     border: none;
     cursor: pointer;
     z-index: 1100; /* Deve estar acima do conteúdo */
+  }
+
+  .hamburguer-button-button {
+    cursor: pointer;
+    background-color: unset;
+    border: unset;
   }
   
   

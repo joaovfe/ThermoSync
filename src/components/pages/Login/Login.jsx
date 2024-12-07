@@ -12,9 +12,16 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const storedEmail = "admin@gmail.com";
-  const storedPassword = "X234tyouvx4,.?";
+  // let storedEmail = JSON.parse(localStorage.getItem("usuarios")) || ["admin@gmail.com"];
+  // let storedPassword = JSON.parse(localStorage.getItem("usuarios")) || ["12345678"];
+  let storedEmail = [{email: "admin@gmail.com"}];
+  let storedPassword = [{senha: "12345678"}];
 
+  storedEmail = storedEmail.map((data) => data.email)
+  storedPassword = storedPassword.map((data) => data.senha)
+
+  console.log('storedEmail: ', storedEmail);
+  console.log('storedPassword: ', storedPassword);
 
   useEffect(() => {
     localStorage.setItem("clientes", JSON.stringify(clientesData));
@@ -29,9 +36,21 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(storedEmail)
+    console.log('email: ', email);
+    console.log('storedEmail.includes(email): ', storedEmail.includes(email));
 
-    if (email === storedEmail && password === storedPassword) {
+    console.log('storedPassword: ', storedPassword);
+    console.log('password: ', password);
+    console.log('storedPassword.includes(password): ', storedPassword.includes(password));
+
+
+    if (storedEmail.includes(email) && storedPassword.includes(password)) {
       localStorage.setItem("isAuthenticated",'true');
+      
+      if (email === "admin@gmail.com") {
+        localStorage.setItem("admin", true)
+      }
 
       toast.success("Login bem-sucedido!", {
         position: "top-right",
